@@ -16,7 +16,6 @@ typedef struct matrix_struct {
 #define ERROR 1
 #define CALC_ERROR 2 
 
-
 int s21_create_matrix(int rows, int columns, matrix_t *result);
 void s21_print_matrix(matrix_t *A);
 
