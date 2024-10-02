@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
+
 typedef struct matrix_struct {
     double** matrix;
     int rows;
@@ -40,4 +42,5 @@ int s21_determinant(matrix_t *A, double *result);
 int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 
 
+void fill_matrix(matrix_t *A);
 #endif

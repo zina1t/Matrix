@@ -32,17 +32,3 @@ void s21_print_matrix(matrix_t *A) {
         printf("\n");
     }
 }
-
-int main()
-{
-    int a;
-    matrix_t m;
-    a = s21_create_matrix(3, 3, &m);
-    if (a == OK) {
-        printf("Matrix created\n");
-    } else {
-        printf("Error creating matrix\n");
-    }
-    s21_print_matrix(&m);
-    return 0;
-}
