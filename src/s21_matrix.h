@@ -41,5 +41,6 @@ int s21_determinant(matrix_t *A, double *result);
 int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 
 
+void fill_int_matrix(matrix_t *A);
 void fill_matrix(matrix_t *A);
 #endif
