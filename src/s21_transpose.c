@@ -2,7 +2,7 @@
 
 int s21_transpose(matrix_t *A, matrix_t *result) {
     int code = OK;
-    if (A->matrix != NULL) {
+    if (valid_matrix(A)) {
         s21_create_matrix(A->columns, A->rows, result);
         for (int i = 0; i < A->rows; i++) {
             for (int j = 0; j < A->columns; j++) {

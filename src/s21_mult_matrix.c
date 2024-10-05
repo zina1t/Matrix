@@ -2,7 +2,7 @@
 
 int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
     int code = OK;
-    if ((A->matrix != NULL) && (B->matrix != NULL)) {
+    if (valid_matrix(A) && valid_matrix(B)) {
         if (A->columns == B->rows) {
             s21_create_matrix(A->rows, B->columns, result);
             for (int i = 0; i < A->rows; i++) {
@@ -16,7 +16,7 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
             }
         }
         else {
-            code = FAILURE;
+            code = CALC_ERROR;
         }
     }
     else {
