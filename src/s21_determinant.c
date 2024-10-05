@@ -1,11 +1,11 @@
 #include "s21_matrix.h"
 int s21_determinant(matrix_t *A, double *result) {
-    int code = SUCCESS;
+    int code = OK;
     if (valid_matrix(A)) {
         if (A->columns == A->rows) {
             *result = 0;
             for (int i = 0; i < A->columns; i++) {
-                matrix_t *minor = s21_minor_matrix(0, i, A);
+                matrix_t *minor = minor_matrix(0, i, A);
                 double minor_det = 0;
                 code = s21_determinant(minor, &minor_det);
                 if (!code) {

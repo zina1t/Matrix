@@ -7,11 +7,11 @@ int s21_calc_complements(matrix_t *A, matrix_t *result) {
             s21_create_matrix(A->columns, A->rows, result);
             if (valid_matrix(result)) {
                 for (int i = 0; i < A->rows; i++) {
-                    for (int j = 0; j < A-?columns; j++) {
+                    for (int j = 0; j < A->columns; j++) {
                         matrix_t *minor = minor_matrix(i, j, A);
                         if (valid_matrix(minor)) {
                             double det = 0;
-                            int func_det = s21_determinant(minor, &det);
+                            s21_determinant(minor, &det);
                             result->matrix[i][j] = pow(-1, i+j) * det;
                         }   
                         else {

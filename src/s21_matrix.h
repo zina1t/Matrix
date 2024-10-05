@@ -44,4 +44,5 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 void fill_int_matrix(matrix_t *A);
 void fill_matrix(matrix_t *A);
 int valid_matrix(matrix_t *A);
+matrix_t *minor_matrix(int excluded_row, int excluded_column, matrix_t *A);
 #endif

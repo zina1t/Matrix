@@ -25,12 +25,14 @@ void fill_int_matrix(matrix_t *A) {
 }
 
 int valid_matrix(matrix_t *A) {
+    int code;
     if (A != NULL && A->matrix != NULL && A->rows > 0 && A->columns > 0)
-    return SUCCESS;
+        code = OK;
+    return code;
   }
 
 matrix_t *minor_matrix(int excluded_row, int excluded_column, matrix_t *A) {
-    int code = SUCCESS;
+    int code = OK;
     if (!valid_matrix(A)) {
         code = ERROR;
     }
