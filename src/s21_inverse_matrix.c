@@ -14,6 +14,8 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
                     int mult_code = s21_mult_number(&transposed_compls, 1 / det, result);
                 }
             }
+            s21_remove_matrix(compls);
+            s21_remove_matrix(transposed_compls);
         }
         else {
             code = CALC_ERROR;
