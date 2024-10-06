@@ -43,3 +43,7 @@ rebuild: clean all
 clean:
 	rm -f *.o *.a tests/*.gcno tests/*.gcda *.info *.out *.gcov tests/*.log
 	rm -rf ./report
+
+valgrind_check: test
+	@CK_FORK=no valgrind --vgdb=no --leak-check=full \
+	--show-leak-kinds=all --track-origins=yes --log-file="valgrind.log" -v --verbose -q --quiet -s tests/$(TEST_TARGET)

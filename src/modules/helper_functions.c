@@ -7,29 +7,23 @@ int valid_matrix(matrix_t *A) {
 }
 
 matrix_t *minor_matrix(int excluded_row, int excluded_column, matrix_t *A) {
-  int code = OK;
-  if (!valid_matrix(A)) {
-    code = ERROR;
-  }
-
-  matrix_t *minor = calloc(1, sizeof(matrix_t));
-  if (minor == NULL) {
-    code = ERROR;
-  }
-
-  if (s21_create_matrix(A->rows - 1, A->columns - 1, minor) != OK) {
-    free(minor);
-    code = ERROR;
-  }
-  if (code != ERROR) {
-    for (int i = 0, minor_row = 0; i < A->rows; i++) {
-      if (i == excluded_row) continue;
-      for (int j = 0, minor_column = 0; j < A->columns; j++) {
-        if (j == excluded_column) continue;
-        minor->matrix[minor_row][minor_column] = A->matrix[i][j];
-        minor_column++;
+  matrix_t *minor = NULL;
+  if (valid_matrix(A)) {
+    minor = calloc(1, sizeof(matrix_t));
+    if (minor != NULL) {
+      if (s21_create_matrix(A->rows - 1, A->columns - 1, minor) == OK) {
+        for (int i = 0, minor_row = 0; i < A->rows; i++) {
+          if (i != excluded_row) {
+            for (int j = 0, minor_column = 0; j < A->columns; j++) {
+              if (j != excluded_column) {
+                minor->matrix[minor_row][minor_column] = A->matrix[i][j];
+                minor_column++;
+              }
+            }
+            minor_row++;
+          }
+        }
       }
-      minor_row++;
     }
   }
   return minor;

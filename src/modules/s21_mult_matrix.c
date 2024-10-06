@@ -11,7 +11,6 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
           for (int k = 0; k < A->columns; k++) {
             result->matrix[i][j] += A->matrix[i][k] * B->matrix[k][j];
           }
-          printf("res %f ", result->matrix[i][j]);
         }
       }
     } else {
@@ -20,6 +19,5 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
   } else {
     code = ERROR;
   }
-  printf("\n");
   return code;
 }
